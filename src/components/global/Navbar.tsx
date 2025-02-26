@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   Dialog,
   DialogPanel,
@@ -28,7 +29,7 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 
 const products = [
   { name: 'NNN Agreements', description: 'Protect your idea with binding contracts', href: '/products/nnn', icon: LockClosedIcon },
-  { name: 'Chinese Trademarks', description: 'Trademark and protect your brand', href: '#', icon: GlobeAltIcon },
+  { name: 'Chinese Trademarks', description: 'Trademark and protect your brand', href: '/products/ctm', icon: GlobeAltIcon },
   { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   { name: 'All products', description: 'View our full product range', href: '/products', icon: ArrowPathIcon },
@@ -45,16 +46,16 @@ export default function Example() {
     <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <Image
-              alt=""
+              alt="Company Logo"
               src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
               className="h-8 w-auto"
               height={32}
               width={32}
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -118,7 +119,7 @@ export default function Example() {
             Marketplace
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Company
+            Learn
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -131,14 +132,16 @@ export default function Example() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image
-                alt=""
+                alt="Logo"
                 src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
+                height={32}
+                width={32}
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -185,7 +188,7 @@ export default function Example() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Company
+                  Learn
                 </a>
               </div>
               <div className="py-6">

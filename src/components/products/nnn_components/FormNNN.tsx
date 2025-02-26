@@ -11,6 +11,7 @@ interface FormData {
   term: string;
   confidentialityPeriod: string;
   additionalTerms: string;
+   [key: string]: string; // Allow for additional properties
 }
 
 interface FormNNNProps {

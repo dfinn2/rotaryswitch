@@ -16,6 +16,7 @@ interface FormData {
   term: string;
   confidentialityPeriod: string;
   additionalTerms: string;
+  [key: string]: string; // Allow for additional properties
 }
 
 export default function NNNAgreementPage() {
@@ -58,7 +59,7 @@ export default function NNNAgreementPage() {
     setFormData(data);
     
     // Check if all required fields are filled
-    const requiredFields = ['disclosingParty', 'receivingParty', 'effectiveDate', 'purpose'];
+    const requiredFields: (keyof FormData)[] = ['disclosingParty', 'receivingParty', 'effectiveDate', 'purpose'];
     const isComplete = requiredFields.every(field => data[field] && data[field].trim() !== '');
     setIsFormComplete(isComplete);
   };
