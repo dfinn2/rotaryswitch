@@ -1,15 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import Navbar from '../components/global/Navbar'
 import Footer from  '../components/global/Footer'
-
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
 
 export default function Example() {
   
