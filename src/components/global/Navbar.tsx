@@ -49,6 +49,8 @@ export default function Example() {
               alt=""
               src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
               className="h-8 w-auto"
+              height={32}
+              width={32}
             />
           </a>
         </div>
