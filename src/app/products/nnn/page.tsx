@@ -50,7 +50,7 @@ export default function NNNAgreementPage() {
       setTimeout(() => {
         setAnimationClass('animate-fade-in');
       }, 50);
-    }, 300); // This should match the exit animation duration
+    }, 300);
   };
 
   // Function to handle form data changes
@@ -103,7 +103,7 @@ export default function NNNAgreementPage() {
   };
   
   useEffect(() => {
-    // Add our animation classes to global style
+    // Add animation classes to global style
     const style = document.createElement('style');
     style.textContent = `
       @keyframes fadeIn {
@@ -124,7 +124,6 @@ export default function NNNAgreementPage() {
     document.head.appendChild(style);
     
     return () => {
-      // Clean up
       document.head.removeChild(style);
     };
   }, []);
@@ -143,7 +142,7 @@ export default function NNNAgreementPage() {
         
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Column - Info or Form depending on state */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-2/5">
             <div className="bg-white p-6 rounded-lg shadow-sm h-full">
               <div className={animationClass}>
                 {!formStarted ? (
@@ -179,18 +178,6 @@ export default function NNNAgreementPage() {
                       </ul>
                     </div>
                     
-                    <h2 className="text-xl font-semibold pt-4">What's Included:</h2>
-                    <ul className="space-y-3">
-                      {product?.features?.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
                     <div className="pt-6">
                       <button 
                         onClick={startForm}
@@ -211,21 +198,23 @@ export default function NNNAgreementPage() {
             </div>
           </div>
           
-          {/* Preview Column - Right Side */}
-          <div className="lg:w-1/2">
-            <div className="sticky top-8">
+          {/* Preview Column - Right Side - full height - 200px (for button) */}
+          <div className="lg:w-3/5">
+            <div className="sticky top-8 flex flex-col h-[calc(100vh-200px)]"> {/* Tall container with flex column */}
               <h2 className="text-xl font-semibold mb-4">Document Preview</h2>
-              <div className="bg-white p-6 rounded-lg shadow-sm overflow-auto max-h-[600px] mb-6">
+              
+              {/* Document preview takes most of the height */}
+              <div className="flex-grow bg-white p-6 rounded-lg shadow-sm overflow-auto">
                 <NNNPreview formData={formData} />
               </div>
               
-              {/* Payment Button - Only shown when form is started */}
+              {/* Payment button container - fixed at bottom with padding */}
               {formStarted && (
-                <div className="flex justify-center">
+                <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                   <button
                     onClick={handleCheckout}
                     disabled={!isFormComplete || isLoading}
-                    className={`w-full py-3 px-6 font-semibold rounded-md shadow transition-colors ${
+                    className={`w-full py-4 px-6 font-semibold rounded-md shadow transition-colors text-lg ${
                       isFormComplete 
                         ? "bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer" 
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -236,14 +225,13 @@ export default function NNNAgreementPage() {
                       : `Complete & Pay $${((product?.price || 14900) / 100).toFixed(2)}`
                     }
                   </button>
+                  
+                  {!isFormComplete && (
+                    <p className="text-sm text-gray-500 text-center mt-2">
+                      Please fill out all required fields to continue
+                    </p>
+                  )}
                 </div>
-              )}
-              
-              {/* Required fields message */}
-              {formStarted && !isFormComplete && (
-                <p className="text-sm text-gray-500 text-center mt-3">
-                  Please fill out all required fields to continue
-                </p>
               )}
             </div>
           </div>

@@ -93,7 +93,7 @@ export const products: Product[] = [
   {
     id: "006",
     name: "Legal Consultation (1 hour)",
-    price: 15000,
+    price: 1500,
     description: "One hour consultation with a legal expert specializing in Chinese business law",
     category: "consultation",
     features: [

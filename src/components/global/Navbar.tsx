@@ -19,17 +19,19 @@ import {
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
+  GlobeAltIcon,
+  LockClosedIcon,
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'NNN Agreements', description: 'Protect your idea with binding contracts', href: '/products/nnn', icon: ChartPieIcon },
-  { name: 'Chinese Trademarks', description: 'Trademark and protect your brand', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'NNN Agreements', description: 'Protect your idea with binding contracts', href: '/products/nnn', icon: LockClosedIcon },
+  { name: 'Chinese Trademarks', description: 'Trademark and protect your brand', href: '#', icon: GlobeAltIcon },
   { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'All products', description: 'View our full product range', href: '/products', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -67,7 +69,7 @@ export default function Example() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-              Product
+              Products
               <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
             </PopoverButton>
 
